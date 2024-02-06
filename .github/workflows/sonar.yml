@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          path: app
 
       # Configurar ambiente Python
       - name: Set up Python
@@ -19,16 +20,22 @@ jobs:
         with:
           python-version: '3.11'  # Especifique a versão do Python que você está usando
 
-      # Instalar dependências
+      # Instalar dependências do aplicativo
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Substitua requirements.txt pelo nome do seu arquivo de requisitos
+          pip install -r app/requirements.txt  
 
+      # Instalar dependências dos testes
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r app/tests/requirements.txt  
+          
       # Execute os testes
       - name: Run tests
         run: |
-          python -m unittest discover -s tests
+          python -m unittest discover -s app/tests
 
       # Execute a análise do SonarQube
       - name: SonarQubeAnalysis
