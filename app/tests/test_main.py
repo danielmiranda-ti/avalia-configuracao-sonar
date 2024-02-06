@@ -1,5 +1,5 @@
 import unittest
-from src.main import calcular_fatorial, verificar_palindromo
+from main import calcular_fatorial, verificar_palindromo
 
 class TestFuncoes(unittest.TestCase):
     def test_calcular_fatorial(self):
