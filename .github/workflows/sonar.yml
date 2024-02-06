@@ -12,7 +12,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          path: app
+
+      - name: List diretorio
+        run: ls
 
       # Configurar ambiente Python
       - name: Set up Python
