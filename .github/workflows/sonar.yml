@@ -37,7 +37,7 @@ jobs:
       # Execute os testes
       - name: Run tests
         run: |
-          coverage run -m unittest discover -s app/tests && coverage report --show-missing && coverage xml -o app/coverage.xml
+          coverage run -m unittest discover -s app/tests && coverage report --show-missing && coverage xml -o app/coverage.xml --xmlschema=1
 
       # Execute a análise do SonarQube
       - name: SonarQubeAnalysis
